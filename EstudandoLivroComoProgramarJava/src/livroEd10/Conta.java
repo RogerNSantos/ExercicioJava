@@ -6,23 +6,38 @@ package livroEd10;
 public class Conta {
 
 	private String nome;// Variável de instância
-	// Método para definir o nome no objeto
-	// o construtor inicializa name com nome do parâmetro
-	public Conta(String nome) { // o nome do construtor é nome da classe
+	private double salario;
 
-		this.nome = nome;// Armazena o nome
+	// Nome do construtor é nome da classe
+	public Conta(String nome, double salario) {
+
+		this.nome = nome;// atribui name à variável de instância name
+
+		// valida que o balance é maior que 0.0; se não for, a variável de instância balance mantém seu valor
+		if (salario > 0.0)// inicial padrão de 0.0, Se o saldo for válido
+			this.salario = salario;// atribui salario à variável de instância salario
 	}
 
-	// método para configurar o nome
+	// método que deposita (adiciona) apenas uma quantia válida no saldo
+	public void deposito(double depositoConta) {
+		if (depositoConta > 0.0)// se depositoConta for válido
+			salario = salario + depositoConta;// adiciona o saldo
+	}
+
+	// método que retorna saldo da conta
+	public double getSalario() {
+		return salario;
+	}
+
+	// método que define o nome
 	public void setName(String name) {
 		this.nome = name;
 	}
 
-	// Método para recuperar o nome do objeto
-	// método para recuperar o nome do curso
+	// método que define o nome
 	public String getNome() {
 
 		return nome; // retorno valor do nome para o chamador
-	}
+	}// fim do método getName
 
 }// Fim da classe conta
